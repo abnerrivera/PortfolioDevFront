@@ -33,3 +33,15 @@ a {
 ul{
 	list-style: none;
 }
+
+.text-sm{
+	font-size: 0.8rem;
+}
+
+.text-xs{
+	font-size: 0.7rem;
+}
+
+.bold{
+	font-weight: bold;
+}

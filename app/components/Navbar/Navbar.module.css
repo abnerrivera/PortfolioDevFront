@@ -4,9 +4,8 @@
 	height: 100vh;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-evenly;
 	flex-direction: column;
-	gap: 20px;
 }
 
 .navbar__divider {
@@ -22,7 +21,7 @@
 }
 
 .navbar__options {
-	width: 80%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -64,4 +63,18 @@
 .navbar__icon svg {
 	width: 15px;
 	height: 15px;
+}
+
+.navbar__userCont{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	width: 100%;
+	padding: 15px;
+	background-image: url('../../assets/navBg.png');
+	border-radius: 15px;
+}
+
+.navbar__userImage {
+	border-radius: 12px;
 }

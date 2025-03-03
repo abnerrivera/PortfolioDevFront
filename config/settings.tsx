@@ -1,6 +1,6 @@
 import { AiFillHome } from 'react-icons/ai';
 import { BsFillChatLeftTextFill } from 'react-icons/bs';
-import { FaFolder } from 'react-icons/fa';
+import { FaFolder, FaUser } from 'react-icons/fa';
 
 export const settings = {
 	colors: {
@@ -17,4 +17,5 @@ export const settings = {
 		{ name: 'Projects', path: '/', icon: <FaFolder /> },
 		{ name: 'Blog', path: '/', icon: <BsFillChatLeftTextFill /> },
 	],
+	accountPages: [{ name: 'Profile', path: '/', icon: <FaUser /> }],
 };
