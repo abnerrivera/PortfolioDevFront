@@ -1,0 +1,31 @@
+/* styles/buttons.module.css */
+.button {
+	text-transform: uppercase;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s, color 0.3s;
+	border-radius: 15px;
+}
+
+.btnFull {
+	width: 100%;
+}
+
+/* Estilos dinámicos usando variables */
+.primary {
+	background-color: var(--primary-color, #3498db);
+	color: var(--color-text, white);
+}
+
+.secondary {
+	background-color: var(--button-bg, #fff);
+	color: var(--button-color, #000);
+}
+
+.danger {
+	background-color: var(--button-bg, #e74c3c);
+	color: var(--button-color, white);
+}
