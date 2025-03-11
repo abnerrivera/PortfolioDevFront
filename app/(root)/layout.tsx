@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar/Navbar';
+import NavbarServer from '../components/Navbar/NavbarServer';
 import layoutStyles from '../layout/layoutDashboard.module.css';
 
 export default function Layout({
@@ -6,7 +6,7 @@ export default function Layout({
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
 		<section className={layoutStyles.dashboardMain}>
-			<Navbar />
+			<NavbarServer />
 			<main className={layoutStyles.dashboardChildren}>{children}</main>
 		</section>
 	);

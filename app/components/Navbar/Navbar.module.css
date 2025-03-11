@@ -1,3 +1,28 @@
+.navbarMobileBtn {
+	position: fixed;
+	z-index: 11;
+	top: 10px;
+	left: 10px;
+	display: none;
+}
+
+.navbarMobileBtn button {
+	background-color: var(--primary-color);
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 35px;
+	height: 35px;
+	border-radius: 9px;
+}
+
+.navbarMobileBtn button svg {
+	width: 30px;
+	height: 30px;
+	color: white;
+}
+
 .navbar {
 	width: 300px;
 	padding: 30px;
@@ -6,6 +31,15 @@
 	align-items: center;
 	justify-content: space-evenly;
 	flex-direction: column;
+}
+
+.navbar__siteName {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
 }
 
 .navbar__divider {
@@ -32,10 +66,6 @@
 .navbar__link {
 	width: 100%;
 	color: var(--color-text-s);
-}
-
-.active {
-	background: var(--secondary-color);
 	padding: 10px;
 	border-radius: 15px;
 }
@@ -54,18 +84,31 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 12px;
-	background-color: var(--primary-color);
+	background-color: var(--secondary-color);
 	width: 30px;
 	height: 30px;
 	color: white;
 }
 
 .navbar__icon svg {
+	color: var(--primary-color);
 	width: 15px;
 	height: 15px;
 }
 
-.navbar__userCont{
+.navbar__userPages {
+	width: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.navbar__userPages h5 {
+	margin-bottom: 25px;
+}
+.navbar__userCont {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -77,4 +120,53 @@
 
 .navbar__userImage {
 	border-radius: 12px;
+}
+
+.active {
+	background: var(--secondary-color);
+	color: white;
+}
+.active svg {
+	color: white;
+}
+
+.active .navbar__icon {
+	background-color: var(--primary-color);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 834px) {
+}
+
+@media (max-width: 1024px) {
+	.navbarMobileBtn {
+		display: block;
+	}
+	.navbar {
+		width: 300px;
+		height: 100vh;
+		position: fixed; /* Fijamos el menú */
+		top: 0;
+		left: -100%; /* Oculto por defecto */
+		background-color: var(--secondary-color);
+		transition: left 0.3s ease-in-out; /* Animación suave */
+		z-index: 10;
+	}
+	.open {
+		left: 0%;
+	}
+	.navbar__userCont,
+	.navbar__options {
+		max-width: 400px;
+	}
+}
+
+@media (max-width: 1440px) {
 }
