@@ -1,0 +1,133 @@
+.header {
+	position: relative;
+	width: 100%;
+}
+
+.header__up {
+	background-image: url(../../assets/headerBg.png);
+	width: 100%;
+	height: 300px;
+	border-radius: 25px;
+	background-position: 50% center;
+	background-repeat: no-repeat;
+	position: relative;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	width: 100%;
+	height: 300px;
+	background-color: red;
+}
+
+.header__down {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	justify-content: space-between;
+	max-height: 430px;
+	backdrop-filter: saturate(200%) blur(50px);
+	position: absolute;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 2px 5.5px;
+	border: 2px solid rgba(255, 255, 255, 0.31);
+	background: linear-gradient(
+		112.83deg,
+		rgba(255, 255, 255, 0.21) 0%,
+		rgba(255, 255, 255, 0) 110.84%
+	);
+	padding: 24px;
+	border-radius: 20px;
+	position: absolute;
+	top: 230px;
+	left: 50%;
+	transform: translate(-50%);
+	width: 90%;
+	padding: 24px;
+	gap: 30px;
+}
+
+.header__photo {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.header__photo img {
+	border-radius: 20px;
+}
+
+.header__info {
+	line-height: 1.5rem;
+}
+
+.header__options {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header__options ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.header__options li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 15px;
+	padding: 10px 25px;
+	box-shadow: rgba(255, 255, 255, 0.9) 0px 0px 1px 1px inset,
+		rgba(0, 0, 0, 0.05) 0px 20px 27px 0px;
+	cursor: pointer;
+}
+
+.header__options ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+	.header__down{
+		flex-direction: column;
+	}
+	.header__options,
+	.header__options ul {
+		width: 100%;
+		max-width: 250px;
+	}
+	.header__photo{
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+@media (max-width: 834px) {
+
+}
+
+@media (max-width: 1024px) {
+	.header__options ul {
+		flex-direction: column;
+		gap: 10px;
+	}
+	.header__options li {
+		width: 100%;
+	}
+}
+
+@media (max-width: 1440px) {
+}
