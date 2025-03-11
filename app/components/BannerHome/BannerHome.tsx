@@ -25,7 +25,7 @@ const BannerHome = () => {
 
 				<div className={stylesHeader.header__options}>
 					<ul>
-						{settings.headerOptions.map(({ icon, name, path }, index) => (
+						{settings.headerOptions.map(({ icon, name }, index) => (
 							<li key={index}>
 								{icon}
 								{name}

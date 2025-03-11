@@ -10,9 +10,10 @@ import Button from '../Button/Button';
 import Image from 'next/image';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { CgMenuRound } from 'react-icons/cg';
+import {Session} from 'next-auth'
 
 interface NavbarClientProps {
-	session: any;
+	session: Session | null;
 }
 
 const NavbarClient = ({ session }: NavbarClientProps) => {
@@ -78,7 +79,7 @@ const NavbarClient = ({ session }: NavbarClientProps) => {
 						<>
 							<Image
 								className={styles.navbar__userImage}
-								src={session.user.image}
+								src={`${session.user.image}`}
 								alt="userImage"
 								width={35}
 								height={35}
