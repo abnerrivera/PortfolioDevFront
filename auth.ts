@@ -73,6 +73,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 					session.user.name = user.name;
 					session.user.email = user.email;
 					session.user.image = user.avatar_url;
+					session.user.profession = user.profession;
+					session.user.fullName = user.full_name;
+					session.user.age = user.age;
+					session.user.skills = user.skills;
+					session.user.projects = user.projects;
+					session.user.experience = user.experience;
 				}
 			}
 

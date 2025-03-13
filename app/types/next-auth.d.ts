@@ -8,6 +8,12 @@ declare module 'next-auth' {
       name?: string; // Agrega `name`
       email?: string;
       image?: string;
+      profession?: string;
+      fullName?: string;
+      experience?: string[];
+      projects?: string[];
+      skills?: string[];
+      age?: number;
     };
   }
 }
