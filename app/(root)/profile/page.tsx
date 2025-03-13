@@ -39,8 +39,12 @@ const Profile = () => {
 
 				if (error) throw error;
 				setUser(data);
-			} catch (err: any) {
-				setError(err.message);
+			} catch (err: unknown) {
+				if (err instanceof Error) {
+					setError(err.message);
+				} else {
+					setError('Ocurrió un error desconocido');
+				}
 			} finally {
 				setLoading(false);
 			}
