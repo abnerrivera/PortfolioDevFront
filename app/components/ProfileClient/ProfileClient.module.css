@@ -1,0 +1,24 @@
+.profileCont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.formProfile {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formProfile label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formProfile input{
+    font-size: 20px;
+}
