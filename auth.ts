@@ -9,6 +9,11 @@ async function upsertUser(user: {
 	name: string;
 	image: string;
 }) {
+	if (!supabaseAdmin) {
+		console.error('supabaseAdmin no está definido');
+		return null;
+	}
+
 	const { data, error } = await supabaseAdmin
 		.from('users')
 		.select('id')
@@ -16,7 +21,6 @@ async function upsertUser(user: {
 		.single();
 
 	if (!data) {
-		// Insertar usuario si no existe
 		const { error: insertError } = await supabaseAdmin.from('users').insert([
 			{
 				github_id: user.id,
@@ -61,7 +65,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 		},
 
 		async session({ session, token }) {
-			if (token?.sub) {
+			if (token?.sub && supabaseAdmin) {
 				const { data: user } = await supabaseAdmin
 					.from('users')
 					.select('*')
