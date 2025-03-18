@@ -1,0 +1,24 @@
+.cardTalent{
+    width: 350px;
+    padding: 20px;
+    background: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 15px;
+}
+
+.cardTalent img{
+    border-radius: 10px;
+}
+
+.cardTalent__moreInfo{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+}
