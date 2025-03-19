@@ -9,6 +9,8 @@ interface FormData {
 	name: string;
 	avatar_url: string;
 	profession: string;
+	years_experience: number;
+	portfolio: string;
 	experience: string;
 	projects: string;
 	skills: string;
@@ -19,11 +21,12 @@ interface FormData {
 interface CustomInputProps {
 	label: string;
 	name: keyof FormData; // Solo permite claves de FormData
-	type?: 'text' | 'email' | 'number' | 'textarea';
+	type?: 'text' | 'email' | 'number' | 'textarea' | 'select';
 	placeholder?: string;
 	register: UseFormRegister<FormData>; // Usa la misma interfaz de useForm
 	error?: FieldError;
 	disabled?: boolean;
+	options?: { value: string; label: string }[];
 }
 
 const CustomInput: FC<CustomInputProps> = ({
@@ -34,6 +37,7 @@ const CustomInput: FC<CustomInputProps> = ({
 	register,
 	error,
 	disabled,
+	options,
 }) => {
 	return (
 		<div className={styles.inputContainer}>
@@ -45,6 +49,18 @@ const CustomInput: FC<CustomInputProps> = ({
 						{...register(name)}
 						placeholder={placeholder}
 					/>
+				) : type === 'select' && options ? (
+					<select
+						className={styles.input}
+						{...register(name)}
+						disabled={disabled}
+					>
+						{options.map((option) => (
+							<option key={option.value} value={option.value}>
+								{option.label}
+							</option>
+						))}
+					</select>
 				) : (
 					<input
 						disabled={disabled}
