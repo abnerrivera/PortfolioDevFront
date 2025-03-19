@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/u/**', // Permite todas las rutas bajo /u/
       },
+      {
+        protocol: 'https',
+        hostname: 'randomuser.me',
+        port: '',
+        pathname: '/api/**', // Permite todas las rutas bajo /u/
+      },
     ],
   },
 };
