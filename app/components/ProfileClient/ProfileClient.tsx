@@ -17,6 +17,8 @@ interface FormData {
 	name: string;
 	avatar_url: string;
 	profession: string;
+	years_experience: number;
+	portfolio: string;
 	experience: string;
 	projects: string;
 	skills: string;
@@ -54,6 +56,8 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 					name: data.name || '',
 					avatar_url: data.avatar_url || '',
 					profession: data.profession || '',
+					years_experience: data.years_experience?.toString() || '',
+					portfolio: data.portfolio || '',
 					experience: Array.isArray(data.experience)
 						? data.experience.join(', ')
 						: '',
@@ -80,6 +84,8 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 				name: data.name,
 				avatar_url: data.avatar_url,
 				profession: data.profession,
+				years_experience: data.years_experience,
+				portfolio: data.portfolio,
 				experience: data.experience.split(',').map((item) => item.trim()),
 				projects: data.projects.split(',').map((item) => item.trim()),
 				skills: data.skills.split(',').map((item) => item.trim()),
@@ -159,24 +165,47 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 							/>
 						</div>
 
+						<div className={styles.formTwoInputs}>
+							<CustomInput
+								label="Profesión"
+								name="profession"
+								type="select"
+								options={[
+									{ value: 'Back-end', label: 'Back-end' },
+									{ value: 'Front-end', label: 'Front-end' },
+									{ value: 'Fullstack', label: 'Fullstack' },
+								]}
+								register={register}
+							/>
+							<CustomInput
+								label="Years Experience"
+								name="years_experience"
+								type="number"
+								register={register}
+							/>
+						</div>
+
 						<CustomInput
-							label="Profesión"
-							name="profession"
+							label="PortFolio"
+							name="portfolio"
 							type="text"
 							register={register}
 						/>
-						<CustomInput
+
+						{/* <CustomInput
 							label="Experiencia (separada por comas)"
 							name="experience"
 							type="textarea"
 							register={register}
-						/>
-						<CustomInput
+						/> */}
+
+						{/* <CustomInput
 							label="Proyectos (separados por comas)"
 							name="projects"
 							type="textarea"
 							register={register}
-						/>
+						/> */}
+						
 						<CustomInput
 							label="Habilidades (separadas por comas)"
 							name="skills"
