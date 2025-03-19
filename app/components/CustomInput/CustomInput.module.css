@@ -1,0 +1,28 @@
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .label {
+    font-weight: 500;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  .input:focus {
+    border-color: #0070f3;
+    outline: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 14px;
+  }
+  
