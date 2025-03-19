@@ -1,0 +1,42 @@
+.tag {
+	padding: 5px 10px;
+	border-radius: 9px;
+	font-size: 0.8rem;
+	/* border: 2.5px solid; */
+}
+
+.primary {
+	background-color: #e3f3fa;
+	color: #0070d8;
+	border-color: #0070d8;
+}
+
+.secondary {
+	background-color: #e9fee2;
+	color: #14ae5c;
+	border-color: #14ae5c;
+}
+
+.danger {
+	background-color: #fffacd;
+	color: #eb7c17;
+	border-color: #eb7c17;
+}
+
+.warn {
+	background-color: #ffe3ef;
+	color: #e73293;
+	border-color: #e73293;
+}
+
+.black {
+	background-color: #b7b7b7;
+	color: #062b26;
+	border-color: #062b26;
+}
+
+.gray {
+	background-color: #efefef;
+	color: #6b6b6b;
+	border-color: #6b6b6b;
+}
