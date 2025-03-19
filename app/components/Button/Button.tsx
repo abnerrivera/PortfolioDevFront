@@ -2,6 +2,7 @@ import React from 'react';
 import buttonStyles from './Button.module.css';
 
 interface ButtonProps {
+	disabled?: boolean;
 	width?: 'btnFull';
 	type?: 'submit';
 	variable?: 'primary' | 'secondary' | 'danger'; // Tipo de botón
@@ -11,6 +12,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
+	disabled,
 	type,
 	variable = 'primary',
 	style,
@@ -23,6 +25,7 @@ const Button: React.FC<ButtonProps> = ({
 			style={style} // Estilos en línea
 			onClick={onClick}
 			type={type}
+			disabled={disabled}
 		>
 			{children}
 		</button>
