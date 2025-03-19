@@ -9,6 +9,8 @@ declare module 'next-auth' {
       email?: string;
       image?: string;
       profession?: string;
+      years_experience?: number;
+      portfolio?: string;
       full_name?: string;
       experience?: string[];
       projects?: string[];
