@@ -20,6 +20,9 @@ const CardTalent = ({ user }: UserProps) => {
 			>
 				<p>Github: {user.name}</p>
 			</a>
+			<a href={`${user.portfolio}`} target="_blank" rel="noopener noreferrer">
+				<p>Portfolio: Click Here</p>
+			</a>
 			<TagCustom variable="primary" text={user.profession || 'Frontend'} />
 			<div className={styles.cardTalent__moreInfo}>
 				<div>
