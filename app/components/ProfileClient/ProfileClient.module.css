@@ -1,24 +1,42 @@
 .profileCont{
+    text-align: center;
+    width: 100%;
+    min-height: 95vh;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.profileFormCont{
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 15px;
     flex-direction: column;
-    gap: 30px;
+}
+
+.formTwoInputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.formTwoInputs img{
+    border-radius: 50%;
 }
 
 .formProfile {
-    width: 80%;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .formProfile label {
+    text-align: left;
     display: flex;
     flex-direction: column;
     gap: 5px;
-}
-
-.formProfile input{
-    font-size: 20px;
 }
