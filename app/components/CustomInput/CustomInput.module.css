@@ -11,13 +11,13 @@
   .input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 3px solid transparent;
     border-radius: 6px;
     font-size: 16px;
   }
   
   .input:focus {
-    border-color: #0070f3;
+    border-color: var(--primary-color);
     outline: none;
   }
   
@@ -26,3 +26,6 @@
     font-size: 14px;
   }
   
+  .input:disabled{
+    color: white;
+  }
