@@ -9,7 +9,7 @@ declare module 'next-auth' {
       email?: string;
       image?: string;
       profession?: string;
-      fullName?: string;
+      full_name?: string;
       experience?: string[];
       projects?: string[];
       skills?: string[];
