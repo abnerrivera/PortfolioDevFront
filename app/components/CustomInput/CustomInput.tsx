@@ -3,12 +3,25 @@ import { FC } from "react";
 import { UseFormRegister, FieldError } from "react-hook-form";
 import styles from "./CustomInput.module.css";
 
+// Define la interfaz del formulario
+interface FormData {
+  email: string;
+  name: string;
+  avatar_url: string;
+  profession: string;
+  experience: string;
+  projects: string;
+  skills: string;
+  age: string;
+  full_name: string;
+}
+
 interface CustomInputProps {
   label: string;
-  name: "email" | "name" | "avatar_url" | "profession" | "experience" | "projects" | "skills" | "age" | "full_name";
+  name: keyof FormData; // Solo permite claves de FormData
   type?: "text" | "email" | "number" | "textarea";
   placeholder?: string;
-  register: UseFormRegister<any>;
+  register: UseFormRegister<FormData>; // Usa la misma interfaz de useForm
   error?: FieldError;
 }
 
