@@ -34,8 +34,6 @@ const TalentPool = () => {
     fetchUsers()
   }, [])
   
-  console.log(users)
-
   return (
     <section>
       <div className={styles.talentCont}>
