@@ -13,19 +13,32 @@ export const settings = {
 	texts: {
 		siteName: 'ABNER RIVERA',
 		defaultDesc: 'Welcome to mi portfolio',
-		email: 'abner500edrey@gmail.com'
+		email: 'abner500edrey@gmail.com',
 	},
 	menuItems: [
-		{ status:true, name: 'Home', path: '/', icon: <AiFillHome /> },
-		{ status:true, name: 'Projects', path: '/projects', icon: <FaFolder /> },
-		{ status:true, name: 'Blog', path: '/blog', icon: <BsFillChatLeftTextFill /> },
-		{ status:true, name: 'Talent pool', path: '/talentPool', icon: <MdGroups />
+		{ status: true, name: 'Home', path: '/', icon: <AiFillHome /> },
+		{
+			status: true,
+			name: 'Talent pool',
+			path: '/talentPool',
+			icon: <MdGroups />,
+		},
+		{
+			status: true,
+			name: 'Blog',
+			path: '/blog',
+			icon: <BsFillChatLeftTextFill />,
 		},
 	],
 	headerOptions: [
-		{status:true, name: 'projects', path: '/projects', icon: <FaFolder />},
-		{status:true, name: 'experience', path: '/experience', icon: <AiFillSafetyCertificate />},
-		{status:true, name: 'skills', path: '/skills', icon: <GiSkills />}
+		{ status: true, name: 'projects', path: '/projects', icon: <FaFolder /> },
+		{
+			status: true,
+			name: 'experience',
+			path: '/experience',
+			icon: <AiFillSafetyCertificate />,
+		},
+		{ status: true, name: 'skills', path: '/skills', icon: <GiSkills /> },
 	],
 	accountPages: [{ name: 'Profile', path: '/profile', icon: <FaUser /> }],
 };
