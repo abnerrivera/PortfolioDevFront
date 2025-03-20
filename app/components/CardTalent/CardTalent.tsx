@@ -3,6 +3,8 @@ import styles from './CardTalent.module.css';
 import { Session } from 'next-auth';
 import Image from 'next/image';
 import TagCustom from '../TagCustom/TagCustom';
+import { IoLogoGithub } from 'react-icons/io';
+import { FaFolder } from 'react-icons/fa';
 
 type UserProps = {
 	user: Session['user'];
@@ -13,29 +15,41 @@ const CardTalent = ({ user }: UserProps) => {
 		<div className={styles.cardTalent}>
 			<Image width={50} height={50} src={`${user.image}`} alt="profile" />
 			<h3>{user.full_name || 'Unknow'}</h3>
-			<a
-				href={`https://github.com/${user.name}`}
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<p>Github: {user.name}</p>
-			</a>
-			<a href={`${user.portfolio}`} target="_blank" rel="noopener noreferrer">
-				<p>Portfolio: Click Here</p>
-			</a>
+			<div className={styles.cardTalent__moreUser}>
+				<a
+					href={`https://github.com/${user.name}`}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<p>
+						<span>
+							<IoLogoGithub />
+						</span>{' '}
+						Github
+					</p>
+				</a>
+				<a href={`${user.portfolio}`} target="_blank" rel="noopener noreferrer">
+					<p>
+						<span>
+							<FaFolder />
+						</span>{' '}
+						Portfolio
+					</p>
+				</a>
+			</div>
 			<TagCustom variable="primary" text={user.profession || 'Frontend'} />
 			<div className={styles.cardTalent__moreInfo}>
 				<div>
-					<p>20</p>
+					<p className="bold"> {user.years_experience} years</p>
+					<span>Experience</span>
+				</div>
+				<div>
+					<p className="bold">{user.projects?.length}</p>
 					<span>Projects</span>
 				</div>
 				<div>
-					<p>20</p>
-					<span>Projects</span>
-				</div>
-				<div>
-					<p>20</p>
-					<span>Projects</span>
+					<p className="bold">{user.skills?.length}</p>
+					<span>Skills</span>
 				</div>
 			</div>
 		</div>

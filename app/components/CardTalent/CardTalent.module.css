@@ -1,24 +1,64 @@
-.cardTalent{
-    width: 350px;
-    padding: 20px;
-    background: var(--secondary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 15px;
-    border-radius: 15px;
+.cardTalent {
+	width: 350px;
+	padding: 20px;
+	background: var(--secondary-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 15px;
+	border-radius: 15px;
+    text-transform: capitalize;
 }
 
-.cardTalent img{
-    border-radius: 10px;
+.cardTalent img {
+	border-radius: 10px;
 }
 
-.cardTalent__moreInfo{
-    margin-top: 15px;
-    width: 100%;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: space-around;
+.cardTalent__moreUser {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.cardTalent__moreUser a {
+	background-color: var(--background-color);
+	padding: 10px 20px;
+	border-radius: 15px;
+}
+.cardTalent__moreUser p {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.cardTalent__moreInfo {
+	margin-top: 15px;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: space-around;
+}
+.cardTalent__moreInfo p {
+	font-size: 1.2rem;
+}
+
+.cardTalent__moreUser svg {
+	width: 20px;
+	height: 20px;
+}
+
+.cardTalent__moreUser span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--primary-color);
+	padding: 5px;
+	border-radius: 10px;
+}
+.cardTalent__moreInfo span {
+	color: var(--color-text-s);
 }
