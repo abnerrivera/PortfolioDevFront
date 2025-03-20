@@ -43,7 +43,8 @@
 	justify-content: space-around;
 }
 .cardTalent__moreInfo p {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
+	margin-bottom: 5px;
 }
 
 .cardTalent__moreUser svg {
