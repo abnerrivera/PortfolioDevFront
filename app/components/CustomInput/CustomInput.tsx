@@ -9,17 +9,19 @@ interface FormData {
 	name: string;
 	avatar_url: string;
 	profession: string;
-	years_experience: number;
+	time_experience: number;
+	time_unit: number;
 	portfolio: string;
 	experience: string;
 	projects: string;
+	main_skill: string;
 	skills: string;
 	age: string;
 	full_name: string;
 }
 
 interface CustomInputProps {
-	label: string;
+	label?: string;
 	name: keyof FormData; // Solo permite claves de FormData
 	type?: 'text' | 'email' | 'number' | 'textarea' | 'select';
 	placeholder?: string;
