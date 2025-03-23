@@ -17,11 +17,13 @@ interface FormData {
 	name: string;
 	avatar_url: string;
 	profession: string;
-	years_experience: number;
+	time_experience: number;
+	time_unit: number;
 	portfolio: string;
 	experience: string;
 	projects: string;
 	skills: string;
+	main_skill: string;
 	age: string;
 	full_name: string;
 }
@@ -56,7 +58,8 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 					name: data.name || '',
 					avatar_url: data.avatar_url || '',
 					profession: data.profession || '',
-					years_experience: data.years_experience?.toString() || '',
+					time_experience: data.time_experience?.toString() || '',
+					time_unit: data.time_unit?.toString() || '',
 					portfolio: data.portfolio || '',
 					experience: Array.isArray(data.experience)
 						? data.experience.join(', ')
@@ -64,6 +67,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 					projects: Array.isArray(data.projects)
 						? data.projects.join(', ')
 						: '',
+					main_skill: data.main_skill || '',
 					skills: Array.isArray(data.skills) ? data.skills.join(', ') : '',
 					age: data.age?.toString() || '',
 					full_name: data.full_name || '',
@@ -84,11 +88,13 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 				name: data.name,
 				avatar_url: data.avatar_url,
 				profession: data.profession,
-				years_experience: data.years_experience,
+				time_experience: data.time_experience,
+				time_unit: data.time_unit,
 				portfolio: data.portfolio,
 				experience: data.experience.split(',').map((item) => item.trim()),
 				projects: data.projects.split(',').map((item) => item.trim()),
 				skills: data.skills.split(',').map((item) => item.trim()),
+				main_skill: data.main_skill,
 				age: Number(data.age),
 				full_name: data.full_name,
 			})
@@ -177,12 +183,25 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								]}
 								register={register}
 							/>
-							<CustomInput
-								label="Years Experience"
-								name="years_experience"
-								type="number"
-								register={register}
-							/>
+							<div className={styles.formTwoInputs}>
+								<CustomInput
+									label="Time Experience"
+									name="time_experience"
+									type="number"
+									register={register}
+								/>
+								<CustomInput
+									label="---"
+									name="time_unit"
+									type="select"
+									options={[
+										{ value: 'days', label: 'Days' },
+										{ value: 'months', label: 'Months' },
+										{ value: 'years', label: 'Years' },
+									]}
+									register={register}
+								/>
+							</div>
 						</div>
 
 						<CustomInput
@@ -205,7 +224,18 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 							type="textarea"
 							register={register}
 						/> */}
-						
+
+						<CustomInput
+							label="Main Skill"
+							name="main_skill"
+							type="select"
+							options={[
+								{ value: 'typeScript', label: 'Js' },
+								{ value: 'javaScript', label: 'Ts' },
+								{ value: 'python', label: 'Py' },
+							]}
+							register={register}
+						/>
 						<CustomInput
 							label="Habilidades (separadas por comas)"
 							name="skills"

@@ -1,46 +1,47 @@
-.profileCont{
-    text-align: center;
-    width: 100%;
-    min-height: 95vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.profileCont {
+	text-align: center;
+	width: 100%;
+	min-height: 95vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.profileFormCont{
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    border-radius: 15px;
-    flex-direction: column;
+.profileFormCont {
+	background-color: var(--secondary-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+	border-radius: 15px;
+	flex-direction: column;
 }
 
-.formTwoInputs{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+.formTwoInputs {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	flex-wrap: wrap;
 }
 
-.formTwoInputs img{
-    border-radius: 50%;
+.formTwoInputs img {
+	border-radius: 50%;
 }
 
 .formProfile {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .formProfile label {
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
 }
 
 .formProfile button {
-    font-size: 1rem;
+	font-size: 1rem;
 }
