@@ -37,10 +37,16 @@ const CardTalent = ({ user }: UserProps) => {
 					</p>
 				</a>
 			</div>
-			<TagCustom variable="primary" text={user.profession || 'Frontend'} />
+			<div className={styles.cardTalent__tags}>
+				<TagCustom variable="primary" text={user.profession || 'Frontend'} />
+				<TagCustom variable="danger" text={user.main_skill || ''} />
+			</div>
 			<div className={styles.cardTalent__moreInfo}>
 				<div>
-					<p className="bold"> {user.years_experience} years</p>
+					<p className="bold">
+						{' '}
+						{user.time_experience} {user.time_unit}
+					</p>
 					<span>Experience</span>
 				</div>
 				<div>

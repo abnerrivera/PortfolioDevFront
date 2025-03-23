@@ -8,7 +8,7 @@
 	flex-direction: column;
 	gap: 15px;
 	border-radius: 15px;
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .cardTalent img {
@@ -34,6 +34,13 @@
 	gap: 10px;
 }
 
+.cardTalent__tags {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
 .cardTalent__moreInfo {
 	margin-top: 15px;
 	width: 100%;
@@ -41,6 +48,7 @@
 	text-align: center;
 	align-items: center;
 	justify-content: space-around;
+	text-transform: capitalize;
 }
 .cardTalent__moreInfo p {
 	font-size: 1.1rem;
