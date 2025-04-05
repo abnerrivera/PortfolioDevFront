@@ -24,7 +24,8 @@
 }
 
 .navbar {
-	width: 300px;
+	width: 250px;
+	position: absolute;
 	padding: 30px;
 	height: 100vh;
 	display: flex;
