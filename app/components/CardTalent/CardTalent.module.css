@@ -1,73 +1,77 @@
 .cardTalent {
-	width: 350px;
+	width: 360px;
 	padding: 20px;
 	background: var(--secondary-color);
 	display: flex;
-	align-items: center;
-	justify-content: center;
 	flex-direction: column;
+	gap: 16px;
+	border-radius: 20px;
+	text-transform: capitalize;
+	color: white;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cardTalent__header {
+	display: flex;
+	align-items: center;
 	gap: 15px;
-	border-radius: 15px;
-	text-transform: capitalize;
-}
-
-.cardTalent img {
-	border-radius: 10px;
-}
-
-.cardTalent__moreUser {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-}
-
-.cardTalent__moreUser a {
-	background-color: var(--background-color);
-	padding: 10px 20px;
-	border-radius: 15px;
-}
-.cardTalent__moreUser p {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-}
-
-.cardTalent__tags {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
-}
-
-.cardTalent__moreInfo {
-	margin-top: 15px;
-	width: 100%;
-	display: flex;
-	text-align: center;
-	align-items: center;
-	justify-content: space-around;
-	text-transform: capitalize;
-}
-.cardTalent__moreInfo p {
-	font-size: 1.1rem;
-	margin-bottom: 5px;
-}
-
-.cardTalent__moreUser svg {
-	width: 20px;
-	height: 20px;
-}
-
-.cardTalent__moreUser span {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: var(--primary-color);
-	padding: 5px;
-	border-radius: 10px;
-}
-.cardTalent__moreInfo span {
+  }
+  
+  .cardTalent__avatar {
+	border-radius: 50%;
+	border: 2px solid white;
+  }
+  
+  .cardTalent__role {
+	font-size: 0.9rem;
 	color: var(--color-text-s);
-}
+	margin-top: 4px;
+  }
+  
+  .cardTalent__links {
+	display: flex;
+	justify-content: center;
+	gap: 12px;
+  }
+  
+  .cardTalent__links a {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background-color: var(--background-color);
+	padding: 8px 14px;
+	border-radius: 12px;
+	font-size: 0.9rem;
+	transition: background 0.2s ease;
+  }
+  
+  .cardTalent__links a:hover {
+	background-color: var(--primary-color);
+  }
+  
+  .cardTalent__tags {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	flex-wrap: wrap;
+  }
+  
+  .cardTalent__info {
+	text-align: center;
+	font-size: 1.1rem;
+  }
+  
+  .cardTalent__info span {
+	font-size: 0.9rem;
+	color: var(--color-text-s);
+  }
+  
+  .cardTalent__extra {
+	text-align: center;
+	font-size: 0.85rem;
+	color: var(--color-text-s);
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+  }
+  

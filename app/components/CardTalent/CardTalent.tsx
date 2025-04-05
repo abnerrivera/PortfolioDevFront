@@ -7,59 +7,57 @@ import { IoLogoGithub } from 'react-icons/io';
 import { FaFolder } from 'react-icons/fa';
 
 type UserProps = {
-	user: Session['user'];
+  user: Session['user'];
 };
 
 const CardTalent = ({ user }: UserProps) => {
-	return (
-		<div className={styles.cardTalent}>
-			<Image width={50} height={50} src={`${user.image}`} alt="profile" />
-			<h3>{user.full_name || 'Unknow'}</h3>
-			<div className={styles.cardTalent__moreUser}>
-				<a
-					href={`https://github.com/${user.name}`}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<p>
-						<span>
-							<IoLogoGithub />
-						</span>{' '}
-						Github
-					</p>
-				</a>
-				<a href={`${user.portfolio}`} target="_blank" rel="noopener noreferrer">
-					<p>
-						<span>
-							<FaFolder />
-						</span>{' '}
-						Portfolio
-					</p>
-				</a>
-			</div>
-			<div className={styles.cardTalent__tags}>
-				<TagCustom variable="primary" text={user.profession || 'Frontend'} />
-				<TagCustom variable="danger" text={user.main_skill || ''} />
-			</div>
-			<div className={styles.cardTalent__moreInfo}>
-				<div>
-					<p className="bold">
-						{' '}
-						{user.time_experience} {user.time_unit}
-					</p>
-					<span>Experience</span>
-				</div>
-				{/* <div>
-					<p className="bold">{user.projects?.length}</p>
-					<span>Projects</span>
-				</div>
-				<div>
-					<p className="bold">{user.skills?.length}</p>
-					<span>Skills</span>
-				</div> */}
-			</div>
-		</div>
-	);
+  return (
+    <div className={styles.cardTalent}>
+      <div className={styles.cardTalent__header}>
+        <Image
+          width={64}
+          height={64}
+          src={`${user.image}`}
+          alt="profile"
+          className={styles.cardTalent__avatar}
+        />
+        <div>
+          <h3>{user.full_name || 'Unknown'}</h3>
+          <p className={styles.cardTalent__role}>{user.profession || 'Frontend Developer'}</p>
+        </div>
+      </div>
+
+      <div className={styles.cardTalent__links}>
+        <a
+          href={`https://github.com/${user.name}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IoLogoGithub /> GitHub
+        </a>
+        <a href={`${user.portfolio}`} target="_blank" rel="noopener noreferrer">
+          <FaFolder /> Portfolio
+        </a>
+      </div>
+
+      <div className={styles.cardTalent__tags}>
+        <TagCustom variable="primary" text={user.profession || 'Frontend'} />
+        <TagCustom variable="danger" text={user.main_skill || ''} />
+      </div>
+
+      <div className={styles.cardTalent__info}>
+        <p className="bold">
+          {user.time_experience} {user.time_unit}
+        </p>
+        <span>Experience</span>
+      </div>
+
+      <div className={styles.cardTalent__extra}>
+        <p>🌍 Remote · 🇺🇸 USA</p>
+        <p>💬 English (Fluent)</p>
+      </div>
+    </div>
+  );
 };
 
 export default CardTalent;
