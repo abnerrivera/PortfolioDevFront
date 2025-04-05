@@ -119,25 +119,30 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 						className={styles.formProfile}
 						onSubmit={handleSubmit(onSubmit)}
 					>
-						<h1>Bienvenido, {session.user.name}</h1>
+						<div className={styles.formTitle}>
+							<h1>Bienvenido, {session.user.name}</h1>
+							<p>
+								Please fill out all the required information to apply for IT
+								positions
+							</p>
+						</div>
 
 						{/* Avatar */}
-						<div className={styles.formTwoInputs}>
-							<Image
-								width={100}
-								height={100}
-								src={session.user.image!}
-								alt="Avatar"
-							/>
-							<CustomInput
-								disabled
-								label="Avatar URL"
-								name="avatar_url"
-								type="text"
-								register={register}
-								error={errors.avatar_url}
-							/>
-						</div>
+						<Image
+							width={100}
+							height={100}
+							src={session.user.image!}
+							alt="Avatar"
+						/>
+
+						<CustomInput
+							disabled
+							label="Avatar URL"
+							name="avatar_url"
+							type="text"
+							register={register}
+							error={errors.avatar_url}
+						/>
 
 						{/* Nombre y Nombre Completo */}
 						<div className={styles.formTwoInputs}>

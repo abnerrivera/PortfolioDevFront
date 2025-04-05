@@ -1,7 +1,8 @@
 .profileCont {
 	text-align: center;
 	width: 100%;
-	min-height: 95vh;
+	min-height: 100vh;
+	padding: 60px 0px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -17,23 +18,27 @@
 	border-radius: 15px;
 	flex-direction: column;
 }
-
-.formTwoInputs {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 20px;
-	flex-wrap: wrap;
+.profileFormCont input {
+	width: 100%;
 }
 
-.formTwoInputs img {
+.formTwoInputs {
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.formProfile img {
 	border-radius: 50%;
 }
 
 .formProfile {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	align-items: center;
+	gap: 30px;
 }
 
 .formProfile label {
@@ -45,4 +50,10 @@
 
 .formProfile button {
 	font-size: 1rem;
+}
+
+.formTitle {
+	text-align: start;
+	line-height: 30px;
+	margin-bottom: 30px;
 }
