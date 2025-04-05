@@ -8,24 +8,15 @@ import styles from './ProfileClient.module.css';
 import Button from '../Button/Button';
 import CustomInput from '../CustomInput/CustomInput';
 
+// ZOD
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { profileSchema } from '@/zod/validationSchema';
+
+type FormData = z.infer<typeof profileSchema>;
+
 interface ProfileClientProps {
 	session: Session | null;
-}
-
-interface FormData {
-	email: string;
-	name: string;
-	avatar_url: string;
-	profession: string;
-	time_experience: number;
-	time_unit: number;
-	portfolio: string;
-	experience: string;
-	projects: string;
-	skills: string;
-	main_skill: string;
-	age: string;
-	full_name: string;
 }
 
 const ProfileClient = ({ session }: ProfileClientProps) => {
@@ -35,7 +26,9 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 		handleSubmit,
 		reset,
 		formState: { errors, isSubmitting },
-	} = useForm<FormData>();
+	} = useForm<FormData>({
+		resolver: zodResolver(profileSchema),
+	});
 
 	const [loading, setLoading] = useState(true);
 
@@ -58,7 +51,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 					name: data.name || '',
 					avatar_url: data.avatar_url || '',
 					profession: data.profession || '',
-					time_experience: data.time_experience?.toString() || '',
+					time_experience: data.time_experience || 0,
 					time_unit: data.time_unit?.toString() || '',
 					portfolio: data.portfolio || '',
 					experience: Array.isArray(data.experience)
@@ -91,9 +84,15 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 				time_experience: data.time_experience,
 				time_unit: data.time_unit,
 				portfolio: data.portfolio,
-				experience: data.experience.split(',').map((item) => item.trim()),
-				projects: data.projects.split(',').map((item) => item.trim()),
-				skills: data.skills.split(',').map((item) => item.trim()),
+				experience: data.experience
+					? data.experience.split(',').map((item) => item.trim())
+					: [],
+				projects: data.projects
+					? data.projects.split(',').map((item) => item.trim())
+					: [],
+				skills: data.skills
+					? data.skills.split(',').map((item) => item.trim())
+					: [],
 				main_skill: data.main_skill,
 				age: Number(data.age),
 				full_name: data.full_name,
@@ -121,6 +120,8 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<h1>Bienvenido, {session.user.name}</h1>
+
+						{/* Avatar */}
 						<div className={styles.formTwoInputs}>
 							<Image
 								width={100}
@@ -129,18 +130,20 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								alt="Avatar"
 							/>
 							<CustomInput
-								disabled={true}
+								disabled
 								label="Avatar URL"
 								name="avatar_url"
 								type="text"
 								register={register}
+								error={errors.avatar_url}
 							/>
 						</div>
 
+						{/* Nombre y Nombre Completo */}
 						<div className={styles.formTwoInputs}>
 							<CustomInput
 								label="User Name"
-								disabled={true}
+								disabled
 								name="name"
 								type="text"
 								register={register}
@@ -150,14 +153,17 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								label="Nombre Completo"
 								name="full_name"
 								type="text"
+								maxLength={20}
 								register={register}
+								error={errors.full_name}
 							/>
 						</div>
 
+						{/* Email y Edad */}
 						<div className={styles.formTwoInputs}>
 							<CustomInput
 								label="Email"
-								disabled={true}
+								disabled
 								name="email"
 								type="email"
 								register={register}
@@ -168,9 +174,11 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								name="age"
 								type="number"
 								register={register}
+								error={errors.age}
 							/>
 						</div>
 
+						{/* Profesión, Años de experiencia y Unidad de tiempo */}
 						<div className={styles.formTwoInputs}>
 							<CustomInput
 								label="Profesión"
@@ -182,67 +190,82 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 									{ value: 'Fullstack', label: 'Fullstack' },
 								]}
 								register={register}
+								error={errors.profession}
 							/>
 							<div className={styles.formTwoInputs}>
 								<CustomInput
-									label="Time Experience"
+									label="Tiempo de Experiencia"
 									name="time_experience"
 									type="number"
 									register={register}
+									error={errors.time_experience}
 								/>
 								<CustomInput
-									label="---"
+									label="Unidad de Tiempo"
 									name="time_unit"
 									type="select"
 									options={[
-										{ value: 'days', label: 'Days' },
-										{ value: 'months', label: 'Months' },
-										{ value: 'years', label: 'Years' },
+										{ value: 'days', label: 'Días' },
+										{ value: 'months', label: 'Meses' },
+										{ value: 'years', label: 'Años' },
 									]}
 									register={register}
+									error={errors.time_unit}
 								/>
 							</div>
 						</div>
 
+						{/* Portafolio */}
 						<CustomInput
-							label="PortFolio"
+							label="Portafolio"
 							name="portfolio"
-							type="text"
+							type="url"
 							register={register}
+							error={errors.portfolio}
 						/>
 
+						{/* Experiencia (Array) */}
 						{/* <CustomInput
 							label="Experiencia (separada por comas)"
 							name="experience"
 							type="textarea"
 							register={register}
+							error={errors.experience}
 						/> */}
 
+						{/* Proyectos (Array) */}
 						{/* <CustomInput
 							label="Proyectos (separados por comas)"
 							name="projects"
 							type="textarea"
 							register={register}
+							error={errors.projects}
 						/> */}
 
+						{/* Habilidad principal */}
 						<CustomInput
 							label="Main Skill"
 							name="main_skill"
 							type="select"
 							options={[
-								{ value: 'typeScript', label: 'Js' },
-								{ value: 'javaScript', label: 'Ts' },
-								{ value: 'python', label: 'Py' },
+								{ value: 'typeScript', label: 'TypeScript' },
+								{ value: 'javaScript', label: 'JavaScript' },
+								{ value: 'python', label: 'Python' },
 							]}
 							register={register}
+							error={errors.main_skill}
 						/>
-						<CustomInput
+
+						{/* Habilidades (Array) */}
+						{/* <CustomInput
 							label="Habilidades (separadas por comas)"
 							name="skills"
 							type="textarea"
 							register={register}
-						/>
+							error={errors.skills}
+						/> */}
 
+						{/* Botón de envío */}
 						<Button type="submit" disabled={isSubmitting}>
 							{isSubmitting ? 'Guardando...' : 'Actualizar'}
 						</Button>
