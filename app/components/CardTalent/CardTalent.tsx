@@ -49,14 +49,14 @@ const CardTalent = ({ user }: UserProps) => {
 					</p>
 					<span>Experience</span>
 				</div>
-				<div>
+				{/* <div>
 					<p className="bold">{user.projects?.length}</p>
 					<span>Projects</span>
 				</div>
 				<div>
 					<p className="bold">{user.skills?.length}</p>
 					<span>Skills</span>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
