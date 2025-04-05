@@ -1,35 +1,98 @@
 .inputContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .label {
-    font-weight: 500;
-  }
-  
-  .input {
-    width: 100%;
-    padding: 8px;
-    border: 3px solid transparent;
-    border-radius: 6px;
-    font-size: 16px;
-  }
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
 
-  .input[type=number] {
-    width: 130px;
-  }
-  
-  .input:focus {
-    border-color: var(--primary-color);
-    outline: none;
-  }
-  
-  .error {
-    color: red;
-    font-size: 14px;
-  }
-  
-  .input:disabled{
-    color: white;
-  }
+.label {
+	font-weight: 500;
+}
+
+.input {
+	width: 100%;
+	padding: 8px;
+	border: 3px solid transparent;
+	border-radius: 6px;
+	font-size: 16px;
+}
+
+.input[type='number'] {
+	width: 130px;
+	appearance: textfield;
+	-moz-appearance: textfield;
+}
+
+.input[type='number']::-webkit-outer-spin-button,
+.input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.select::-ms-expand {
+	display: none; /* Para Edge */
+}
+
+.input:focus {
+	border-color: var(--primary-color);
+	outline: none;
+}
+
+.error {
+	position: absolute;
+	bottom: 8px;
+	right: 5px;
+	color: red;
+	font-size: 14px;
+}
+
+.input:disabled {
+	color: white;
+}
+
+.inputError {
+	border: 1px solid red;
+	background-color: #ffe6e6;
+}
+
+.error {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	display: flex;
+}
+
+.error__icon {
+	cursor: pointer;
+}
+.error__icon svg {
+	width: 20px;
+	height: 20px;
+}
+
+.error__msg {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: -30px;
+	right: 0;
+	background-color: black;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 5px;
+	white-space: nowrap;
+	transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+	font-size: 0.85rem;
+}
+
+/* Mostrar tooltip cuando se pasa el mouse sobre el icono */
+.error__icon:hover + .error__msg {
+	visibility: visible;
+	opacity: 1;
+}
