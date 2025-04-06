@@ -113,14 +113,14 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 		<div className={styles.profileCont}>
 			<div className={styles.profileFormCont}>
 				{loading ? (
-					<p>Cargando datos...</p>
+					<p>Loading...</p>
 				) : (
 					<form
 						className={styles.formProfile}
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className={styles.formTitle}>
-							<h1>Bienvenido, {session.user.name}</h1>
+							<h1>Welcome {session.user.name}</h1>
 							<p>
 								Please fill out all the required information to apply for IT
 								positions
@@ -155,7 +155,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								error={errors.name}
 							/>
 							<CustomInput
-								label="Nombre Completo"
+								label="Full Name"
 								name="full_name"
 								type="text"
 								maxLength={20}
@@ -175,7 +175,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								error={errors.email}
 							/>
 							<CustomInput
-								label="Edad"
+								label="Age"
 								name="age"
 								type="number"
 								register={register}
@@ -186,7 +186,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 						{/* Profesión, Años de experiencia y Unidad de tiempo */}
 						<div className={styles.formTwoInputs}>
 							<CustomInput
-								label="Profesión"
+								label="Profession"
 								name="profession"
 								type="select"
 								options={[
@@ -199,20 +199,20 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 							/>
 							<div className={styles.formTwoInputs}>
 								<CustomInput
-									label="Tiempo de Experiencia"
+									label="Time experience"
 									name="time_experience"
 									type="number"
 									register={register}
 									error={errors.time_experience}
 								/>
 								<CustomInput
-									label="Unidad de Tiempo"
+									label="Time unit"
 									name="time_unit"
 									type="select"
 									options={[
-										{ value: 'days', label: 'Días' },
-										{ value: 'months', label: 'Meses' },
-										{ value: 'years', label: 'Años' },
+										{ value: 'days', label: 'Days' },
+										{ value: 'months', label: 'Months' },
+										{ value: 'years', label: 'Years' },
 									]}
 									register={register}
 									error={errors.time_unit}
@@ -222,7 +222,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 
 						{/* Portafolio */}
 						<CustomInput
-							label="Portafolio"
+							label="Portfolio"
 							name="portfolio"
 							type="url"
 							register={register}
@@ -272,7 +272,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 
 						{/* Botón de envío */}
 						<Button type="submit" disabled={isSubmitting}>
-							{isSubmitting ? 'Guardando...' : 'Actualizar'}
+							{isSubmitting ? 'Saved...' : 'Update'}
 						</Button>
 					</form>
 				)}

@@ -10,7 +10,7 @@ import Button from '../Button/Button';
 import Image from 'next/image';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { CgMenuRound } from 'react-icons/cg';
-import {Session} from 'next-auth'
+import { Session } from 'next-auth';
 
 interface NavbarClientProps {
 	session: Session | null;
@@ -101,8 +101,7 @@ const NavbarClient = ({ session }: NavbarClientProps) => {
 					) : (
 						<>
 							<p className="text-sm">
-								Inicia sesión para poder subir tu hoja de vida y ver vacantes
-								disponibles
+								Log in to upload your resume and view available vacancies
 							</p>
 							<br />
 							<form action={() => login('github')}>
