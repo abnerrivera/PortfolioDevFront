@@ -1,14 +1,27 @@
 'use client';
+
+//styles
+import styles from './ProfileClient.module.css';
+
+//hooks
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+//data
 import { Session } from 'next-auth';
-import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
-import styles from './ProfileClient.module.css';
+
+//sources
+import Image from 'next/image';
+
+//components
 import Button from '../Button/Button';
 import CustomInput from '../CustomInput/CustomInput';
 
-// ZOD
+//settings
+import { settings } from '@/config/settings';
+
+//zod
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { profileSchema } from '@/zod/validationSchema';
@@ -120,7 +133,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 						onSubmit={handleSubmit(onSubmit)}
 					>
 						<div className={styles.formTitle}>
-							<h1>Welcome {session.user.name}</h1>
+							<p>Welcome {session.user.name}</p>
 							<p>
 								Please fill out all the required information to apply for IT
 								positions
@@ -189,11 +202,7 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 								label="Profession"
 								name="profession"
 								type="select"
-								options={[
-									{ value: 'Back-end', label: 'Back-end' },
-									{ value: 'Front-end', label: 'Front-end' },
-									{ value: 'Fullstack', label: 'Fullstack' },
-								]}
+								options={settings.professions}
 								register={register}
 								error={errors.profession}
 							/>
@@ -229,46 +238,15 @@ const ProfileClient = ({ session }: ProfileClientProps) => {
 							error={errors.portfolio}
 						/>
 
-						{/* Experiencia (Array) */}
-						{/* <CustomInput
-							label="Experiencia (separada por comas)"
-							name="experience"
-							type="textarea"
-							register={register}
-							error={errors.experience}
-						/> */}
-
-						{/* Proyectos (Array) */}
-						{/* <CustomInput
-							label="Proyectos (separados por comas)"
-							name="projects"
-							type="textarea"
-							register={register}
-							error={errors.projects}
-						/> */}
-
 						{/* Habilidad principal */}
 						<CustomInput
 							label="Main Skill"
 							name="main_skill"
 							type="select"
-							options={[
-								{ value: 'typeScript', label: 'TypeScript' },
-								{ value: 'javaScript', label: 'JavaScript' },
-								{ value: 'python', label: 'Python' },
-							]}
+							options={settings.skills}
 							register={register}
 							error={errors.main_skill}
 						/>
-
-						{/* Habilidades (Array) */}
-						{/* <CustomInput
-							label="Habilidades (separadas por comas)"
-							name="skills"
-							type="textarea"
-							register={register}
-							error={errors.skills}
-						/> */}
 
 						{/* Botón de envío */}
 						<Button type="submit" disabled={isSubmitting}>

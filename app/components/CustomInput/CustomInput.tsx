@@ -34,7 +34,9 @@ const CustomInput: FC<CustomInputProps> = ({
 }) => {
 	return (
 		<div className={styles.inputContainer}>
-			{label && <label className={styles.label}>{label}</label>}
+			{label && (
+				<label className={`${styles.label} bold text-sm`}>{label}</label>
+			)}
 			{type === 'textarea' ? (
 				<textarea
 					className={`${styles.input} ${error ? styles.inputError : ''}`}

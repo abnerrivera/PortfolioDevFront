@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase';
 import { Session } from 'next-auth';
 import styles from './talentPool.module.css';
 import CardTalent from '@/app/components/CardTalent/CardTalent';
+import SearchFilter from '@/app/components/SearchFilterBar/SearchFilterBar';
 
 type User = Session['user'];
 
@@ -39,6 +40,7 @@ const TalentPool = () => {
 
 	return (
 		<section>
+			<SearchFilter />
 			<div className={styles.talentCont}>
 				{completedUser.map((item, index) => (
 					<CardTalent key={index} user={item} />
