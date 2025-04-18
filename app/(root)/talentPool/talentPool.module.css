@@ -1,8 +1,38 @@
 .talentCont {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    width: 100%;
-    gap: 30px;
-    flex-wrap: wrap;
+    width: 100%; /* Ajusta el ancho para dejar un pequeño margen en pantallas grandes */
+    max-width: 1600px; /* Limita el ancho máximo en pantallas muy grandes */
+    margin: 20px auto; /* Centra el contenedor horizontalmente y añade un margen superior e inferior */
+    display: grid;
+    gap: 10px; /* Aumenta el espacio entre las tarjetas para mejor legibilidad */
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); /* Distribuye las tarjetas automáticamente con un ancho mínimo de 300px */
+}
+
+/* Media query para tablets y pantallas más pequeñas (hasta 1024px de ancho) */
+@media (max-width: 1024px) {
+    .talentCont {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduce el ancho mínimo de las tarjetas */
+        gap: 15px; /* Reduce el espacio entre las tarjetas */
+        width: 98%; /* Ocupa un poco más de ancho */
+        margin: 15px auto;
+    }
+}
+
+/* Media query para dispositivos móviles (hasta 768px de ancho) */
+@media (max-width: 768px) {
+    .talentCont {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Reduce aún más el ancho mínimo */
+        gap: 10px; /* Reduce el espacio entre las tarjetas */
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 10px auto;
+    }
+}
+
+/* Media query para móviles más pequeños (hasta 480px de ancho) */
+@media (max-width: 480px) {
+    .talentCont {
+        grid-template-columns: 1fr; /* Muestra las tarjetas en una sola columna */
+        gap: 15px; /* Aumenta un poco el espacio vertical */
+        margin: 10px auto;
+        padding: 0 10px; /* Añade un poco de padding lateral */
+    }
 }
