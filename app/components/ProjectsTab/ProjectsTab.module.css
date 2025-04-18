@@ -1,0 +1,38 @@
+.projectCard {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+    gap: 15px;
+    background-color: var(--secondary-color);
+    width: 350px;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.projectCard img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.projectTags {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.projectBtns{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectBtns a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
