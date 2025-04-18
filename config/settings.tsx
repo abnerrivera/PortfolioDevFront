@@ -4,6 +4,7 @@ import { BsFillChatLeftTextFill } from 'react-icons/bs';
 import { FaFolder, FaUser } from 'react-icons/fa';
 import { GiSkills } from 'react-icons/gi';
 import { MdGroups } from 'react-icons/md';
+import projectImg1 from '../app/assets/project1.png';
 
 export const settings = {
 	colors: {
@@ -70,5 +71,42 @@ export const settings = {
 		{ value: '1-3 Years', label: '1-3 Years' },
 		{ value: '3-6 Years', label: '3-6 Years' },
 		{ value: '6+ Years', label: '6+ Years' },
+	],
+};
+
+export const profileData = {
+	projects: [
+		{
+			imageUrl: projectImg1,
+			title: 'Prescripto',
+			tags: ['react', 'tailwind', 'oaut'],
+			description: 'A doctor book for users',
+			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
+			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
+		},
+		{
+			imageUrl: projectImg1,
+			title: 'Prescripto',
+			tags: ['react', 'tailwind', 'oaut'],
+			description: 'A doctor book for users',
+			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
+			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
+		},
+		{
+			imageUrl: projectImg1,
+			title: 'Prescripto',
+			tags: ['react', 'tailwind', 'oaut'],
+			description: 'A doctor book for users',
+			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
+			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
+		},
+		{
+			imageUrl: projectImg1,
+			title: 'Prescripto',
+			tags: ['react', 'tailwind', 'oaut'],
+			description: 'A doctor book for users',
+			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
+			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
+		},
 	],
 };

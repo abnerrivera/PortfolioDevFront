@@ -50,6 +50,10 @@ ul {
 	color: #cbd5e0;
 }
 
+.border {
+	box-shadow: 0 1px 5px #0000004d;
+}
+
 /* width */
 ::-webkit-scrollbar {
 	width: 5px;
