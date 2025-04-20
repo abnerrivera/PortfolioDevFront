@@ -1,42 +1,44 @@
 /* components/Pagination/Pagination.module.css */
 .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 35px 0px;
 }
 
 .pagination button {
-    padding: 8px 12px;
-    margin: 0 5px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
+	font-weight: bold;
+	color: white;
+	padding: 8px 12px;
+	margin: 0 5px;
+	cursor: pointer;
+	border: 1px solid var(--primary-color);
+	border-radius: 4px;
+	background-color: var(--primary-color);
 }
 
 .pagination button:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+	cursor: not-allowed;
+	opacity: 0.5;
 }
 
 .pageNumbers {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
 }
 
 .pageNumbers li {
-    margin: 0 5px;
-    cursor: pointer;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+	margin: 0 5px;
+	cursor: pointer;
+	padding: 8px 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 .pageNumbers li.active {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+	background-color: var(--primary-color);
+	color: white;
+	border-color: var(--primary-color);
 }
