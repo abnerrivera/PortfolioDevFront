@@ -4,7 +4,14 @@ export const profileSchema = z.object({
 	email: z.string().email('Invalid email address'),
 	name: z.string().min(2, 'Name must have at least 2 characters'),
 	avatar_url: z.string().url('Must be a valid URL'),
-	profession: z.enum(['Back-end', 'Front-end', 'Fullstack']),
+	profession: z.enum([
+		'Full-Stack',
+		'Front-End',
+		'Back-End',
+		'Mobile Developer',
+		'UX/UI Designer',
+		'DevOps',
+	]),
 	time_experience: z.coerce
 		.number()
 		.min(0, 'Must be a positive number')
