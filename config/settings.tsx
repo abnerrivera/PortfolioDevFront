@@ -25,12 +25,12 @@ export const settings = {
 			path: '/talentPool',
 			icon: <MdGroups />,
 		},
-		{
-			status: true,
-			name: 'Blog',
-			path: '/blog',
-			icon: <BsFillChatLeftTextFill />,
-		},
+		// {
+		// 	status: true,
+		// 	name: 'Blog',
+		// 	path: '/blog',
+		// 	icon: <BsFillChatLeftTextFill />,
+		// },
 	],
 	headerOptions: [
 		{ status: true, name: 'projects', path: '/projects', icon: <FaFolder /> },
@@ -66,11 +66,11 @@ export const settings = {
 	],
 	experiences: [
 		{ value: 'All', label: 'All' },
-		{ value: '0-6 Months', label: '0-6 Months' },
-		{ value: '6-12 Months', label: '6-12 Months' },
-		{ value: '1-3 Years', label: '1-3 Years' },
-		{ value: '3-6 Years', label: '3-6 Years' },
-		{ value: '6+ Years', label: '6+ Years' },
+		{ value: '0-6-Months', label: '0-6 Months' },
+		{ value: '6-12-Months', label: '6-12 Months' },
+		{ value: '1-3-Years', label: '1-3 Years' },
+		{ value: '3-6-Years', label: '3-6 Years' },
+		{ value: '6+-0-Years', label: '6+ Years' },
 	],
 };
 
