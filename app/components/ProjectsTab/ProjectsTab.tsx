@@ -33,13 +33,13 @@ const ProjectsTab: React.FC<ProjectsTabProps> = ({
 			</div>
 			<p className="txt-gray">{description}</p>
 			<div className={styles.projectBtns}>
-				<a href={liveDemoUrl}>
+				<a href={liveDemoUrl} target="_blank" rel="noopener noreferrer">
 					<FiExternalLink />
-					Ver proyecto
+					View Project
 				</a>
-				<a href={githubUrl}>
+				<a href={githubUrl} target="_blank" rel="noopener noreferrer">
 					<FaGithub />
-					Codigo
+					Code
 				</a>
 			</div>
 		</div>

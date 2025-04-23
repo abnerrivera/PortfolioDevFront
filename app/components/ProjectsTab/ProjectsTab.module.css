@@ -1,11 +1,12 @@
 .projectCard {
 	display: flex;
 	align-items: flex-start;
-	justify-content: center;
+	justify-content: space-between;
 	flex-direction: column;
     gap: 15px;
     background-color: var(--secondary-color);
     width: 350px;
+    height: 450px;
     padding: 25px;
     border-radius: 15px;
 }

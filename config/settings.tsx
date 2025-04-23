@@ -5,6 +5,7 @@ import { FaFolder, FaUser } from 'react-icons/fa';
 import { GiSkills } from 'react-icons/gi';
 import { MdGroups } from 'react-icons/md';
 import projectImg1 from '../app/assets/project1.png';
+import projectImg2 from '../app/assets/project2.png';
 
 export const settings = {
 	colors: {
@@ -79,34 +80,20 @@ export const profileData = {
 		{
 			imageUrl: projectImg1,
 			title: 'Prescripto',
-			tags: ['react', 'tailwind', 'oaut'],
-			description: 'A doctor book for users',
+			tags: ['react', 'tailwind', 'javascript'],
+			description:
+				'A scheduling app for booking appointments with doctors across various medical specialties',
 			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
 			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
 		},
 		{
-			imageUrl: projectImg1,
-			title: 'Prescripto',
-			tags: ['react', 'tailwind', 'oaut'],
-			description: 'A doctor book for users',
-			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
-			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
-		},
-		{
-			imageUrl: projectImg1,
-			title: 'Prescripto',
-			tags: ['react', 'tailwind', 'oaut'],
-			description: 'A doctor book for users',
-			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
-			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
-		},
-		{
-			imageUrl: projectImg1,
-			title: 'Prescripto',
-			tags: ['react', 'tailwind', 'oaut'],
-			description: 'A doctor book for users',
-			liveDemoUrl: 'https://prescripto-neon.vercel.app/',
-			githubUrl: 'https://github.com/abnerrivera/prescripto/tree/main/frontend',
+			imageUrl: projectImg2,
+			title: 'Portfolio Platform',
+			tags: ['nextjs', 'oaut', 'supabase', 'typescript'],
+			description:
+				'A portfolio platform that showcases my work while also collecting portfolios from registered developers, serving as a hub for tech recruiters to discover talent',
+			liveDemoUrl: 'https://portfolio-dev-front.vercel.app/',
+			githubUrl: 'https://github.com/abnerrivera/PortfolioDevFront',
 		},
 	],
 };

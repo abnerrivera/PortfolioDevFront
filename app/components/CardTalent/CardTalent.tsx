@@ -52,10 +52,12 @@ const CardTalent = ({ user }: UserProps) => {
         <span>Experience</span>
       </div>
 
+      {/* 
       <div className={styles.cardTalent__extra}>
         <p>🌍 Remote · 🇺🇸 USA</p>
         <p>💬 English (Fluent)</p>
       </div>
+      */}
     </div>
   );
 };
