@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Session } from 'next-auth';
 import styles from './talentPool.module.css';
@@ -13,6 +13,11 @@ const { professions, skills, experiences } = settings;
 
 type User = Session['user'];
 
+const LoadingState = () => <div>Cargando usuarios...</div>;
+const ErrorState = ({ message }: { message: string }) => (
+	<div>Error al cargar los usuarios: {message}</div>
+);
+
 const TalentPool = () => {
 	const [users, setUsers] = useState<User[]>([]);
 	const [currentPage, setCurrentPage] = useState<number>(1);
@@ -20,12 +25,72 @@ const TalentPool = () => {
 	const [totalUsers, setTotalUsers] = useState<number>(0);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
-	const [search, setSearch] = useState('');
-	const [profession, setProfession] = useState('All');
-	const [skill, setSkill] = useState('All');
-	const [experience, setExperience] = useState('All');
+	const [filters, setFilters] = useState({
+		search: '',
+		profession: 'All',
+		skill: 'All',
+		experience: 'All',
+	});
 
-	const totalPages = Math.ceil(totalUsers / usersPerPage);
+	const totalPages = useMemo(
+		() => Math.ceil(totalUsers / usersPerPage),
+		[totalUsers, usersPerPage]
+	);
+
+	const buildQuery = useCallback(
+		(startIndex: number, endIndex: number) => {
+			const { search, profession, skill, experience } = filters;
+			let query = supabase
+				.from('users')
+				.select('*', { count: 'exact' })
+				.range(startIndex, endIndex);
+
+			if (search) {
+				query = query.ilike('full_name', `%${search}%`);
+			}
+			if (profession !== 'All') {
+				query = query.eq('profession', profession);
+			}
+			if (skill !== 'All') {
+				query = query.ilike('main_skill', `%${skill}%`);
+			}
+			if (experience !== 'All') {
+				switch (experience) {
+					case '0-6-Months':
+						query = query
+							.filter('time_experience', 'gte', 0)
+							.filter('time_unit', 'eq', 'months')
+							.filter('time_experience', 'lte', 6);
+						break;
+					case '6-12-Months':
+						query = query
+							.filter('time_experience', 'gte', 6)
+							.filter('time_unit', 'eq', 'months')
+							.filter('time_experience', 'lte', 12);
+						break;
+					case '1-3-Years':
+						query = query
+							.filter('time_experience', 'gte', 1)
+							.filter('time_unit', 'eq', 'years')
+							.filter('time_experience', 'lte', 3);
+						break;
+					case '3-6-Years':
+						query = query
+							.filter('time_experience', 'gte', 3)
+							.filter('time_unit', 'eq', 'years')
+							.filter('time_experience', 'lte', 6);
+						break;
+					case '6+-0-Years':
+						query = query
+							.filter('time_experience', 'gte', 6)
+							.filter('time_unit', 'eq', 'years');
+						break;
+				}
+			}
+			return query;
+		},
+		[filters]
+	);
 
 	const fetchUsers = useCallback(async () => {
 		setLoading(true);
@@ -33,132 +98,78 @@ const TalentPool = () => {
 
 		const startIndex = (currentPage - 1) * usersPerPage;
 		const endIndex = startIndex + usersPerPage - 1;
+		const query = buildQuery(startIndex, endIndex);
 
-		let query = supabase
-			.from('users')
-			.select('*', { count: 'exact' })
-			.range(startIndex, endIndex);
+		try {
+			const { data, error, count } = await query;
 
-		if (search) {
-			query = query.ilike('full_name', `%${search}%`);
-		}
-		if (profession !== 'All') {
-			query = query.eq('profession', profession);
-		}
-		if (skill !== 'All') {
-			query = query.ilike('main_skill', `%${skill}%`);
-		}
-		if (experience !== 'All') {
-			if (experience === '0-6-Months') {
-				query = query
-					.filter('time_experience', 'gte', 0)
-					.filter('time_unit', 'eq', 'months')
-					.filter('time_experience', 'lte', 6);
-			} else if (experience === '6-12-Months') {
-				query = query
-					.filter('time_experience', 'gte', 6)
-					.filter('time_unit', 'eq', 'months')
-					.filter('time_experience', 'lte', 12);
-			} else if (experience === '1-3-Years') {
-				query = query
-					.filter('time_experience', 'gte', 1)
-					.filter('time_unit', 'eq', 'years')
-					.filter('time_experience', 'lte', 3);
-			} else if (experience === '3-6-Years') {
-				query = query
-					.filter('time_experience', 'gte', 3)
-					.filter('time_unit', 'eq', 'years')
-					.filter('time_experience', 'lte', 6);
-			} else if (experience === '6+-0-Years') {
-				query = query
-					.filter('time_experience', 'gte', 6)
-					.filter('time_unit', 'eq', 'years');
-			}
-		}
+			if (error) throw error;
 
-		const { data, error, count } = await query;
-
-		if (error) {
-			console.error('Error al obtener usuarios:', error);
-			setError(error.message);
-		} else {
 			const normalizedUsers: User[] = data.map((user) => ({
 				...user,
 				image: user.avatar_url,
 			}));
+
 			setUsers(normalizedUsers);
 			setTotalUsers(count || 0);
+		} catch (err) {
+			console.error('Error al obtener usuarios:', err);
+			setError(err instanceof Error ? err.message : 'Error desconocido');
+		} finally {
+			setLoading(false);
 		}
-		setLoading(false);
-	}, [
-		currentPage,
-		usersPerPage,
-		search,
-		profession,
-		skill,
-		experience,
-		supabase,
-	]);
+	}, [currentPage, usersPerPage, buildQuery]);
 
-	const handlePageChange = (newPage: number) => {
+	const handlePageChange = useCallback((newPage: number) => {
 		setCurrentPage(newPage);
-	};
+	}, []);
 
-	const handleSearch = (searchText: string) => {
-		setSearch(searchText);
+	const handleFilterChange = useCallback((key: string, value: string) => {
+		setFilters((prev) => ({ ...prev, [key]: value }));
 		setCurrentPage(1);
-	};
-
-	const handleProfessionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		setProfession(e.target.value);
-		setCurrentPage(1);
-	};
-
-	const handleSkillChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		setSkill(e.target.value);
-		setCurrentPage(1);
-	};
-
-	const handleExperienceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		setExperience(e.target.value);
-		setCurrentPage(1);
-	};
+	}, []);
 
 	useEffect(() => {
 		fetchUsers();
 	}, [fetchUsers]);
 
-	if (loading) {
-		return <div>Cargando usuarios...</div>;
-	}
+	if (loading) return <LoadingState />;
+	if (error) return <ErrorState message={error} />;
 
-	if (error) {
-		return <div>Error al cargar los usuarios: {error}</div>;
-	}
-
-	const completedUser = users.filter(
+	const completedUsers = users.filter(
 		(user) => user.full_name !== null && user.full_name?.trim() !== ''
 	);
 
 	return (
 		<section>
 			<SearchFilter
-				search={search}
-				onSearch={handleSearch}
-				profession={profession}
-				onProfessionChange={handleProfessionChange}
-				skill={skill}
-				onSkillChange={handleSkillChange}
-				experience={experience}
-				onExperienceChange={handleExperienceChange}
+				search={filters.search}
+				onSearch={(searchText) => handleFilterChange('search', searchText)}
+				profession={filters.profession}
+				onProfessionChange={(e) =>
+					handleFilterChange('profession', e.target.value)
+				}
+				skill={filters.skill}
+				onSkillChange={(e) => handleFilterChange('skill', e.target.value)}
+				experience={filters.experience}
+				onExperienceChange={(e) =>
+					handleFilterChange('experience', e.target.value)
+				}
 				professions={professions}
 				skills={skills}
 				experiences={experiences}
 			/>
 			<div className={styles.talentCont}>
-				{completedUser.map((item, index) => (
-					<CardTalent key={index} user={item} />
-				))}
+				{completedUsers.length > 0 ? (
+					completedUsers.map((user, index) => (
+						<CardTalent key={user.id || index} user={user} />
+					))
+				) : (
+					<p>
+						No se encontraron usuarios que coincidan con los criterios de
+						búsqueda.
+					</p>
+				)}
 			</div>
 			{totalPages > 1 && (
 				<Pagination
