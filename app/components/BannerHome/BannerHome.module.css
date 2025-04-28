@@ -108,6 +108,18 @@
 	background: rgba(255, 255, 255, 0.3);
 }
 
+.gridExperience {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+}
+
+@media (min-width: 768px) {
+	.gridExperience {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 480px) {
@@ -130,6 +142,7 @@
 		margin-top: 400px;
 	}
 	.tabContItems {
+		padding-bottom: 50px;
 		margin-top: 350px;
 	}
 }
