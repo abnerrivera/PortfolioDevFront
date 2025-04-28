@@ -1,0 +1,30 @@
+.experienceTab {
+    width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	background-color: var(--secondary-color);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.experienceTab p {
+	font-size: 20px;
+	font-weight: 600;
+	color: #a0aec0;
+}
+
+.experienceTab ul {
+	color: #718096;
+	padding: 0;
+	margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.experienceTab ul li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
