@@ -24,8 +24,24 @@ const BannerHome = () => {
 				))}
 			</div>
 		),
-		experience: ExperienceTab,
-		skills: SkillsTab,
+		experience: () => (
+			<div className={stylesHeader.tabContItems}>
+				<div className={stylesHeader.gridExperience}>
+					{profileData.experience.map((item, index) => (
+						<ExperienceTab key={index} {...item} />
+					))}
+				</div>
+			</div>
+		),
+		skills: () => (
+			<div className={stylesHeader.tabContItems}>
+				<div className={stylesHeader.gridExperience}>
+					{profileData.skills.map((item, index) => (
+						<SkillsTab key={index} {...item} />
+					))}
+				</div>
+			</div>
+		),
 		// Agrega aquí más mapeos según tus opciones de encabezado
 	};
 
