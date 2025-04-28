@@ -96,4 +96,63 @@ export const profileData = {
 			githubUrl: 'https://github.com/abnerrivera/PortfolioDevFront',
 		},
 	],
+	experience: [
+		{
+			title: 'Frontend Developer',
+			company: 'Prescripto',
+			responsibilities: [
+				'Developed responsive user interfaces using React and Tailwind CSS',
+				'Implemented appointment scheduling functionality with JavaScript',
+				'Collaborated with backend team to integrate API endpoints',
+			],
+		},
+		{
+			title: 'UI/UX Designer',
+			company: 'PortfolioDev',
+			responsibilities: [
+				'Created wireframes and prototypes using Figma',
+				'Conducted user research and usability testing',
+				'Implemented responsive designs with attention to accessibility',
+			],
+		},
+		{
+			title: 'Full Stack Developer',
+			company: 'TechSolutions',
+			responsibilities: [
+				'Built RESTful APIs using Node.js and Express',
+				'Developed frontend components with React and TypeScript',
+				'Implemented database solutions with MongoDB and SQL',
+			],
+		},
+	],
+	skills: [
+		{
+			title: 'Frontend',
+			skills: [
+				'JavaScript',
+				'TypeScript',
+				'React',
+				'Next.js',
+				'css',
+				'tailwind',
+				'sass',
+				'bootstrap',
+				'material-ui',
+				'ant-design',
+				'chakra-ui',
+			],
+		},
+		{
+			title: 'Backend',
+			skills: ['Node.js', 'Express'],
+		},
+		{
+			title: 'Database',
+			skills: ['MongoDB', 'SQL', 'Supabase', 'Firebase'],
+		},
+		{
+			title: 'Tools',
+			skills: ['Git', 'GitHub', 'Figma', 'Postman'],
+		},
+	],
 };
