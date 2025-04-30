@@ -99,29 +99,29 @@ export const profileData = {
 	experience: [
 		{
 			title: 'Frontend Developer',
-			company: 'Prescripto',
+			company: 'Alexander hoyos Coach Empresarial',
 			responsibilities: [
-				'Developed responsive user interfaces using React and Tailwind CSS',
-				'Implemented appointment scheduling functionality with JavaScript',
+				'Developed and maintained the company website using JavaScript, CSS and HTML',
+				'Created and implemented websites for company clients',
 				'Collaborated with backend team to integrate API endpoints',
 			],
 		},
 		{
-			title: 'UI/UX Designer',
-			company: 'PortfolioDev',
+			title: 'Frontend Developer',
+			company: '150 Porciento',
 			responsibilities: [
-				'Created wireframes and prototypes using Figma',
-				'Conducted user research and usability testing',
-				'Implemented responsive designs with attention to accessibility',
+				'Creation of visual structure for required web pages based on Figma designs, using HTML, CSS, React and Sass',
+				'Integration of backend information to ensure full functionality of web applications',
+				'Development of interactive and responsive components that adapt to different devices',
 			],
 		},
 		{
-			title: 'Full Stack Developer',
-			company: 'TechSolutions',
+			title: 'Frontend Developer',
+			company: 'BodyTech',
 			responsibilities: [
-				'Built RESTful APIs using Node.js and Express',
-				'Developed frontend components with React and TypeScript',
-				'Implemented database solutions with MongoDB and SQL',
+				'Responsible for implementing backend data integration in a global user management system, handling accounts, inventories, and payment plans',
+				'Developed responsive interfaces using Next.js, React, and Material UI for the comprehensive management platform',
+				'Created and maintained complex UI components with Sass styling to ensure consistent user experience across the entire system',
 			],
 		},
 	],
